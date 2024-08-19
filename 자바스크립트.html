@@ -12,7 +12,7 @@
     <form action="" method="get">
     <!-- input -->
      <input type="text" name="" id="" placeholder="아이디 입력"><br/>
-     <input type="text" value="Hello World"><br/>
+     <input type="text" id="Hello" value="Hello World"><br/>
      <input type="text" value="창 잠금" disabled="true" id="text">
      <input type="password"><br/>
      <h4>selectBox</h4>
@@ -36,8 +36,36 @@
 
      <!-- 버튼 3개-->
       <input type="reset" value="초기화">
-      <input type="button" value="javascript 호출">
+      <input type="button" value="javascript 호출" onclick="버튼클릭">
       <input type="submit" value="form 기능 실행">
      </form>
+
+
+
+     <script>
+        let Hello = document.getElementById('Hello');
+        console.log(Hello);
+
+        let hobby = document.getElementsByName("hobby");
+        console.log(hobby);
+
+        console.log(hobby[0].checked);
+        console.log(hobby[0].Value);
+
+        console.log('=======================');
+        for(let i =0; i< hobby.length;i++){
+            if(hobby[i].checked){
+                console.log(hobby[i].value);
+            }
+        }
+        function 버튼클릭(){
+            for(let i =0; i< hobby.length;i++){
+            if(hobby[i].checked){
+                console.log(hobby[i].value);
+            }
+        }
+
+        }
+     </script>
 </body>
 </html>
