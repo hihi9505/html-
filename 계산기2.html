@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <select id="op">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">*</option>
+        <option value="4">/</option>
+    </select>
+    <input type="text" id="num2">
+    <input type="button" value="결과" onclick="reslut()">
+    <input type="text" id="result">
+
+    <script>
+        function reslut(){
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            const op = document.getElementById('op').value;
+            
+            
+            let result;
+            switch(op) {
+                case "1": // +
+                    result = num1 + num2;
+                    break;
+                case "2": // -
+                    result = num1 - num2;
+                    break;
+                case "3": // *
+                    result = num1 * num2;
+                    break;
+                case "4": // /
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        result = "오류: 0으로 나눌 수 없습니다";
+                    }
+                    break;
+                default:
+                    result = "유효하지 않은 연산자";
+            }
+            
+          
+            document.getElementById('result').value = result;
+        
+        }
+    </script>
+</body>
+</html>
