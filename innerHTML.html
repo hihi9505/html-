@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .color{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="출략" onclick="create()">
+    <div id="result">
+       
+    </div>
+    <script>
+        function create(){
+            let str ='';
+            for(let i=0; i<10; i++){
+                str += '<span class="color">Hello World ' + '</span>';
+            }
+            document.getElementById('result').innerHTML =str;
+            
+            document.getElementById('result').innerHTML ='<span class="color">Hello World</span>';
+        }
+    </script>
+</body>
+</html>

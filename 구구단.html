@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단 계산기</h1>
+    <p>구구단을 계산할 숫자를 입력하세요:</p>
+    <input type="number" id="numberInput" min="1" max="9" placeholder="1에서 9까지 입력">
+    <button onclick="generateTable()">구구단 계산</button>
+    <div id="result"></div>
+
+    <script>
+        function generateTable() {
+            const number = parseInt(document.getElementById('numberInput').value, 10);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(number) || number < 1 || number > 9) {
+                resultDiv.innerHTML = '<p style="color: red;">1부터 9까지의 숫자를 입력하세요.</p>';
+                return;
+
+
+
+            }
+
+            let table = `<h2>${number}단</h2><ul>`;
+            for (let i = 1; i <= 9; i++) {
+                table += `<li>${number} x ${i} = ${number * i}</li>`;
+            }
+            table += '</ul>';
+
+            resultDiv.innerHTML = table;
+        }
+    </script>
+</body>
+</html>
