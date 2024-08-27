@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select  id="menu01" onchange="box()">
+        <option value="coffee">커피</option>
+        <option value="cake">케이크</option>
+    </select>
+    <select id="menu02">
+
+    </select>
+    <script>
+        function box(){
+            const menu01 = document.getElementById('menu01');
+            const menu02 = document.getElementById('menu02');
+            
+            // 두 번째 드롭다운 초기화
+            menu02.innerHTML = '';
+            
+            // 첫 번째 드롭다운에서 선택된 값 가져오기
+            const selectedValue = menu01.value;
+
+            // 선택된 값에 따라 두 번째 드롭다운의 옵션 설정
+            if (selectedValue === 'coffee') {
+                menu02.innerHTML = `
+                    <option value="latte">라떼</option>
+                    <option value="espresso">에스프레소</option>
+                    <option value="americano">아메리카노</option>
+                `;
+            } else if (selectedValue === 'cake') {
+                menu02.innerHTML = `
+                    <option value="cheesecake">치즈케이크</option>
+                    <option value="chocolatecake">초콜릿 케이크</option>
+                    <option value="carrotcake">당근 케이크</option>
+                `;
+            } else {
+                menu02.innerHTML = '<option value="">옵션이 없습니다</option>';
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>
