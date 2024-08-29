@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <input type="text" id ='num2'>
+    <input type="button" value="전송" onclick="send()">
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        function send() {
+            let num1 = $('#num1').val();
+            let num2 = $('#num2').val();
+
+            // 값을 숫자로 변환 후 덧셈 수행
+            let sum = Number(num1) + Number(num2);
+
+            console.log('plus :', sum);
+        }
+    </script>
+</body>
+</html>

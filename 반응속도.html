@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+       
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+    #game {
+        text-align: center;
+    }
+    #start-btn {
+        font-size: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    #color-box {
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+        margin-top: 20px;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+<body>
+    <div id="game">
+        <button id="start-btn">게임 시작</button>
+    <div id="color-box"></div>
+        
+    <div id="result"></div>
+    <script>
+    const startBtn = document.getElementById('start-btn');
+    const colorBox = document.getElementById('color-box');
+    const resultDiv = document.getElementById('result');
+
+    let startTime, endTime;
+
+    function getRandomDelay() {
+        return Math.floor(Math.random() * 3000) + 2000; // 2초에서 5초 사이의 랜덤 시간
+    }
+
+    function startGame() {
+        startBtn.disabled = true;
+        resultDiv.textContent = '';
+        colorBox.style.backgroundColor = 'gray';
+
+        // 랜덤 딜레이 후 색상 변경
+        const delay = getRandomDelay();
+        setTimeout(() => {
+            colorBox.style.backgroundColor = 'green';
+            startTime = Date.now(); // 버튼 클릭 시점 기록
+        }, delay);
+    }
+
+    function handleClick() {
+        if (colorBox.style.backgroundColor === 'green') {
+            endTime = Date.now();
+            const reactionTime = endTime - startTime;
+            resultDiv.textContent = `반응 시간: ${reactionTime}ms`;
+            colorBox.style.backgroundColor = 'gray';
+            startBtn.disabled = false; // 게임을 다시 시작할 수 있게 버튼 활성화
+        }
+        
+
+    }
+
+    startBtn.addEventListener('click', startGame);
+    colorBox.addEventListener('click', handleClick);
+</script>
+
+</body>
+</html>

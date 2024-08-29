@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="출력" onclick="resultClick()">
+    <span id = "result">여기에 출력 (odj2의 addres)</span>
+    <script>
+        function resultClick(){
+            //obj1에 odj2를 넣었습니다.
+            //obj1의 변수를 통해서 obj2의 address를 접근
+            document.getElementById('result').innerText = obj1.obj.address;
+            console.log(obj1.obj.address);
+            
+        }
+        //json (key , value) java: haashamp
+        //javaseript Oject (네트워크에서 데이터를 주고 받을 때, 기분으로 사용하는 데이터 타입 중 1개)
+
+        //XML 테그형식으로 데이터를 주고 받는다. (불편하다) => 보완한것 이 json
+        let obj1 ={}; //중괄호 :JSON(Object)
+        
+        
+        //object 사용하는 이유 데이터정리
+        //gettersetter하고 비슷한 역할
+        //obj 사용할 때 주의사항
+        //데이터타입이 정의 안되있어서 , value에는 그냥 모두 다 글어갑니다.
+        //<div class ="name",</div>
+        //json안에 배열도 선언 가능
+        //json아네 function 선언 가능합니다.
+        obj1.a = 'apple';
+        obj1.b = 'banana';
+        console.log(typeof(obj1),obj1);
+
+        let arr = ['a','b','c'];
+        obj1.arr =arr;
+        console.log(obj1);
+
+        let obj2 = new Object();
+        //arr[0] //[괄호안에 숫자가 들어가면 index] =>Array
+        //arr['0'] //괄호안에 문자가 들어가면 key =>Object
+        obj2['apple'] ='apple';
+        obj2['b'] = 'banana';
+        obj2.address = '서울'
+        console.log(obj2);
+        console.log('============');
+        obj1.obj= obj2;
+        console.log(obj);
+
+        function start(){
+            alert('start');
+            console.log('start');
+        }
+    </script>
+</body>
+</html>

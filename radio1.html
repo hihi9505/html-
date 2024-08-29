@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>좋아하는 계절</h1>
+    <input type="radio" name="season" value="spring">봄
+    <input type="radio" name="season" value="sumber">여름
+    <input type="radio" name="season" value="fail">가을
+    <input type="radio" name="season" value="winter">겨울
+    <input type="button" value="전송1" onclick="send()">
+    <input type="button" value="전송2" onclick="send2()">
+    <input type="button" value="전송3" onclick="send3()">
+
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+        function send() {
+            let radio = document.getElementsByName('season');
+            for(let i = 0; i<radio.length;i++) {
+                if(radio[i].checked == ture) {
+                    console.log('선택된 값 :',radio[i].value);
+                }
+            }
+        }
+        function send2() {
+            let radio = $('input[name="season"]');
+            for(let i = 0; i<radio.length;i++) {
+                if(radio[i].checked == ture) {
+                    console.log('선택된 값 :',radio[i].value);
+                }
+            }
+
+        }
+        function send3() {
+            $('input[name="season"]:checked').val();
+            console.log('선택된 값', result);
+        }
+    </script>
+</body>
+</html>
